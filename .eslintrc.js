@@ -4,7 +4,9 @@ module.exports = {
     // 表示eslint的检测环境
     env: {
         // 在node环境启动eslint检测
-        node: true
+        node: true,
+        // vue defineProps 等等 全局
+        'vue/setup-compiler-macros': true
     },
     // eslint中基础配置需要继承的配置
     extends: ['plugin:vue/vue3-essential', '@vue/standard'],
@@ -22,10 +24,11 @@ module.exports = {
     rules: {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-        'comma-dangle': 'off',
         'space-before-function-paren': 'off',
-        quotes: 'off',
-        indent: 0,
-        semi: ['error', 'always']
+        'vue/multi-word-component-names': 'off',
+        'comma-dangle': 'off',
+        semi: ['error', 'always'],
+        indent: ['error', 4],
+        quotes: 'off'
     }
 };
