@@ -27,8 +27,8 @@ console.log('[ variables ]', variables);
 </script>
 
 <style lang="scss" scoped>
-@import '~@/styles/mixin.scss';
-@import '~@/styles/variables.module.scss';
+@import '@/styles/mixin.scss';
+@import '@/styles/variables.module.scss';
 
 .app-wrapper {
     @include clearfix;
@@ -38,6 +38,7 @@ console.log('[ variables ]', variables);
         top: 0;
         right: 0;
         width: calc(100% - #{$sideBarWidth});
+        z-index: 9;
     }
 }
 </style>

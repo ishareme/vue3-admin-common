@@ -1,11 +1,36 @@
+import store from '@/store';
 import axios from 'axios';
 import { ElMessage } from 'element-plus';
+import { isCheckTimeout } from './auth';
 
 const service = axios.create({
     baseURL: process.env.VUE_APP_BASE_API,
     timeout: 5000
 });
 
+// 请求拦截器
+service.interceptors.request.use(
+    (config) => {
+        // 统一注入token
+        if (store.getters.token) {
+            // 判断token是否过期
+            if (isCheckTimeout()) {
+                // 退出
+                store.dispatch('user/logout');
+                ElMessage.error('token失效了');
+                return Promise.reject(new Error('token失效了'));
+            }
+            // 如果token存在 注入token
+            config.headers.Authorization = `Bearer ${store.getters.token}`;
+        }
+        return config;
+    },
+    (error) => {
+        return Promise.reject(error);
+    }
+);
+
+// 响应拦截器
 service.interceptors.response.use(
     (response) => {
         const { success, message, data } = response.data;
@@ -21,6 +46,15 @@ service.interceptors.response.use(
     },
     // 请求失败
     (error) => {
+        // 状态码401的时候token过期
+        if (
+            error.response &&
+            error.response.data &&
+            error.response.data.code === 401
+        ) {
+            // token过期
+            store.dispatch('user/login');
+        }
         // ElMessage.error(error.message);
         return Promise.reject(new Error(error));
     }

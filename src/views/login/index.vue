@@ -99,8 +99,7 @@ const handlerLogin = () => {
             if (!valid) return;
             // 2. 触发登录动作
             loading.value = true;
-            const data = await store.dispatch('user/login', loginForm.value);
-            console.log('[ data ]', data);
+            await store.dispatch('user/login', loginForm.value);
             loading.value = false;
             // 3. 登录后操作
             router.push('/');
