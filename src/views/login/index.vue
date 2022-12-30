@@ -1,6 +1,11 @@
 <template>
     <div class="login-container">
-        <el-form class="login-form" :model="loginForm" :rules="loginRules">
+        <el-form
+            ref="loginFormRef"
+            class="login-form"
+            :model="loginForm"
+            :rules="loginRules"
+        >
             <div class="title-container">
                 <h3 class="title">用户登录</h3>
             </div>
@@ -32,13 +37,21 @@
                 </span>
             </el-form-item>
 
-            <el-button type="primary" class="login-btn">登录</el-button>
+            <el-button
+                type="primary"
+                class="login-btn"
+                @click="handlerLogin"
+                :loading="loading"
+                >登录</el-button
+            >
         </el-form>
     </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
 import { validatePassword } from './rules';
 
 // 数据源
@@ -72,6 +85,30 @@ const passwordType = ref('password');
 const onChangePwdType = () => {
     passwordType.value =
         passwordType.value === 'password' ? 'text' : 'password';
+};
+
+// 处理登录
+const loading = ref(false);
+const store = useStore();
+const loginFormRef = ref(null);
+const router = useRouter();
+const handlerLogin = () => {
+    // 1. 表单校验
+    loginFormRef.value.validate(async (valid) => {
+        try {
+            if (!valid) return;
+            // 2. 触发登录动作
+            loading.value = true;
+            const data = await store.dispatch('user/login', loginForm.value);
+            console.log('[ data ]', data);
+            loading.value = false;
+            // 3. 登录后操作
+            router.push('/');
+        } catch (error) {
+            console.log('[ user/login error ]', error.response);
+            loading.value = false;
+        }
+    });
 };
 </script>
 

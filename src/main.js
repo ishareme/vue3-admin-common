@@ -8,6 +8,8 @@ import './styles/index.scss';
 import 'element-plus/dist/index.css';
 // 导入svgicons
 import installIcons from '@/icons';
+// 导入路由守卫鉴权
+import './permission';
 
 const app = createApp(App);
 installIcons(app);

@@ -18,5 +18,20 @@ module.exports = defineConfig({
                 symbolId: 'icon-[name]'
             })
             .end();
+    },
+    devServer: {
+        proxy: {
+            // 地址中包含 /api 的时候
+            '/api': {
+                target: 'https://api.imooc-admin.lgdsunday.club/',
+                // 跨域
+                changeOrigin: true
+            }
+        },
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            codeType: '1672377159',
+            icode: 'J908417ABEFE2F0F1'
+        }
     }
 });
