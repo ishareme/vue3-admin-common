@@ -1,9 +1,13 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-
+import layout from '@/layout';
 const publicRoutes = [
     {
         path: '/login',
-        component: () => import('@/views/login')
+        component: () => import(/* webpackChunkName: "login" */ '@/views/login')
+    },
+    {
+        path: '/',
+        component: layout
     }
 ];
 
