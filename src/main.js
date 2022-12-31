@@ -4,8 +4,8 @@ import router from './router';
 import store from './store';
 import ElementPlus from 'element-plus';
 import locale from 'element-plus/lib/locale/lang/zh-cn';
-import './styles/index.scss';
 import 'element-plus/dist/index.css';
+import './styles/index.scss';
 // 导入svgicons
 import installIcons from '@/icons';
 // 导入路由守卫鉴权

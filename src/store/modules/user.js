@@ -92,7 +92,6 @@ export default {
                     }
                 };
                 this.commit('user/setUserInfo', res);
-                console.log('[ 2 ]');
                 return res;
             }
         },

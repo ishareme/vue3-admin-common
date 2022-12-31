@@ -1,5 +1,9 @@
 <template>
     <div class="navbar">
+        <div class="left-menu">
+            <Hamburger></Hamburger>
+            <Breadcrumb></Breadcrumb>
+        </div>
         <div class="right-menu">
             <!-- 头像 -->
             <el-dropdown class="avatar-container" trigger="click">
@@ -28,6 +32,8 @@
 
 <script setup>
 import { useStore } from 'vuex';
+import Hamburger from '@/components/Hamburger';
+import Breadcrumb from '@/components/Breadcrumb';
 const store = useStore();
 const handlerLogout = () => {
     store.dispatch('user/logout');
@@ -41,6 +47,13 @@ const handlerLogout = () => {
     position: relative;
     background-color: #fff;
     box-shadow: 0 1px 4px rgba(0, 21, 41, $alpha: 0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left-menu {
+        display: flex;
+        align-items: center;
+    }
     .right-menu {
         display: flex;
         align-items: center;
@@ -49,11 +62,7 @@ const handlerLogout = () => {
         :deep(.avatar-container) {
             cursor: pointer;
             .avatar-wrapper {
-                margin-top: 5px;
                 position: relative;
-                .el-avatar {
-                    --el-avatar-background-color: none;
-                }
             }
         }
     }

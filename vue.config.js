@@ -1,10 +1,14 @@
 const { defineConfig } = require('@vue/cli-service');
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const path = require('path');
 function resolve(dir) {
     return path.join(__dirname, dir);
 }
 module.exports = defineConfig({
     transpileDependencies: true,
+    configureWebpack: {
+        plugins: [new NodePolyfillPlugin()]
+    },
     chainWebpack(config) {
         config.module.rule('svg').exclude.add(resolve('src/icons')).end();
         config.module

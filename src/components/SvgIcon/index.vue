@@ -43,12 +43,18 @@ const iconName = computed(() => `#icon-${props.icon}`);
 </script>
 
 <style lang="scss" scoped>
+.icons {
+    width: 1em;
+    height: 1em;
+    display: inline-block;
+}
 .svg-icon {
     width: 1em;
     height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
+    display: inline-block;
 }
 .svg-external-icon {
     background-color: currentColor;
