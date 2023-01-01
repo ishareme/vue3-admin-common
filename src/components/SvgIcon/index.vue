@@ -1,15 +1,17 @@
 <template>
-    <!-- 展示外部图标 -->
-    <div
-        v-if="isExternal"
-        :style="styleExternalIcon"
-        :className="className"
-        class="svg-external-icon svg-icon"
-    ></div>
-    <!-- 展示内容图标 -->
-    <svg v-else class="svg-icon" :class="className" aria-hidden="true">
-        <use :xlink:href="iconName" />
-    </svg>
+    <div class="icons">
+        <!-- 展示外部图标 -->
+        <div
+            v-if="isExternal"
+            :style="styleExternalIcon"
+            :class="className"
+            class="svg-external-icon svg-icon"
+        ></div>
+        <!-- 展示内容图标 -->
+        <svg v-else class="svg-icon" :class="className" aria-hidden="true">
+            <use :xlink:href="iconName" />
+        </svg>
+    </div>
 </template>
 
 <script setup>
@@ -44,8 +46,6 @@ const iconName = computed(() => `#icon-${props.icon}`);
 
 <style lang="scss" scoped>
 .icons {
-    width: 1em;
-    height: 1em;
     display: inline-block;
 }
 .svg-icon {

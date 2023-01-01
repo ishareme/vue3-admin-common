@@ -1,14 +1,12 @@
 <template>
-    <el-dropdown
-        trigger="click"
-        class="international"
-        @command="handleSetLanguage"
-    >
-        <div>
-            <el-tooltip content="国际化" :effect="effect">
-                <svg-icon icon="language" />
-            </el-tooltip>
-        </div>
+    <el-dropdown trigger="click" @command="handleSetLanguage">
+        <el-tooltip
+            class="international hover-effect"
+            content="国际化"
+            :effect="effect"
+        >
+            <svg-icon icon="language" className="languageIcon"></svg-icon>
+        </el-tooltip>
         <template #dropdown>
             <el-dropdown-menu>
                 <el-dropdown-item :disabled="language === 'zh'" command="zh">
@@ -24,7 +22,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-import { defineProps, computed } from 'vue';
+import { computed } from 'vue';
 import { useStore } from 'vuex';
 import { ElMessage } from 'element-plus';
 
@@ -44,6 +42,7 @@ const language = computed(() => store.getters.language);
 
 // 切换语言的方法
 const i18n = useI18n();
+defineEmits(['handleSetLanguage']);
 const handleSetLanguage = (lang) => {
     i18n.locale.value = lang;
     store.commit('app/setLanguage', lang);
@@ -51,4 +50,15 @@ const handleSetLanguage = (lang) => {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.international {
+    display: inline-block;
+    padding: 0 18px 0 0;
+    font-size: 24px;
+    color: #5a5e66;
+    vertical-align: text-bottom;
+    &.hover-effect {
+        cursor: pointer;
+    }
+}
+</style>

@@ -5,6 +5,7 @@
             <Breadcrumb></Breadcrumb>
         </div>
         <div class="right-menu">
+            <LangSelect></LangSelect>
             <!-- 头像 -->
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
@@ -34,6 +35,8 @@
 import { useStore } from 'vuex';
 import Hamburger from '@/components/Hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
+import LangSelect from '@/components/LangSelect';
+
 const store = useStore();
 const handlerLogout = () => {
     store.dispatch('user/logout');
