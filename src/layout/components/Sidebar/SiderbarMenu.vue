@@ -23,7 +23,6 @@ import { computed } from 'vue';
 import { filterRoutes, generateMenus } from '@/utils/route';
 import SiderbarItem from './SiderbarItem.vue';
 const router = useRouter();
-console.log('[ routers ]', router.getRoutes());
 const routes = computed(() => {
     const _filterRoutes = filterRoutes(router.getRoutes());
     return generateMenus(_filterRoutes);

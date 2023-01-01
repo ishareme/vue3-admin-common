@@ -25,9 +25,6 @@
 import Navbar from './components/Navbar.vue';
 import Sidebar from './components/Sidebar/index.vue';
 import AppMain from './components/AppMain.vue';
-import { useStore } from 'vuex';
-const store = useStore();
-console.log('[ $store.getters.sidebarOpened ]', store.getters.sidebarOpened);
 </script>
 
 <style lang="scss" scoped>
