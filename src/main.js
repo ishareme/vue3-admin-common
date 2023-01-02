@@ -4,7 +4,8 @@ import router from './router';
 import store from './store';
 import i18n from './i18n';
 import ElementPlus from 'element-plus';
-import locale from 'element-plus/lib/locale/lang/zh-cn';
+import zhCn from 'element-plus/es/locale/lang/zh-cn';
+import en from 'element-plus/lib/locale/lang/en';
 import 'element-plus/dist/index.css';
 import './styles/index.scss';
 // 导入svgicons
@@ -14,4 +15,10 @@ import './permission';
 
 const app = createApp(App);
 installIcons(app);
-app.use(ElementPlus, { locale }).use(store).use(router).use(i18n).mount('#app');
+app.use(ElementPlus, {
+    locale: store.getters.language === 'en' ? en : zhCn
+})
+    .use(store)
+    .use(router)
+    .use(i18n)
+    .mount('#app');

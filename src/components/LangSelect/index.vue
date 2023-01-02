@@ -46,14 +46,13 @@ defineEmits(['handleSetLanguage']);
 const handleSetLanguage = (lang) => {
     i18n.locale.value = lang;
     store.commit('app/setLanguage', lang);
-    ElMessage.success('更新成功');
+    ElMessage.success(i18n.t('msg.toast.switchLangSuccess'));
 };
 </script>
 
 <style lang="scss" scoped>
 .international {
     display: inline-block;
-    padding: 0 18px 0 0;
     font-size: 24px;
     color: #5a5e66;
     vertical-align: text-bottom;

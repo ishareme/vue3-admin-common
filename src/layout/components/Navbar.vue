@@ -5,7 +5,7 @@
             <Breadcrumb></Breadcrumb>
         </div>
         <div class="right-menu">
-            <LangSelect></LangSelect>
+            <LangSelect class="lang-select"></LangSelect>
             <!-- 头像 -->
             <el-dropdown class="avatar-container" trigger="click">
                 <div class="avatar-wrapper">
@@ -19,11 +19,13 @@
                 <template #dropdown>
                     <el-dropdown-menu class="user-dropdown">
                         <router-link to="/">
-                            <el-dropdown-item>主页</el-dropdown-item>
+                            <el-dropdown-item>{{
+                                $t('msg.navBar.home')
+                            }}</el-dropdown-item>
                         </router-link>
-                        <el-dropdown-item divided @click="handlerLogout"
-                            >退出登录</el-dropdown-item
-                        >
+                        <el-dropdown-item divided @click="handlerLogout">{{
+                            $t('msg.navBar.logout')
+                        }}</el-dropdown-item>
                     </el-dropdown-menu>
                 </template>
             </el-dropdown>
@@ -67,6 +69,9 @@ const handlerLogout = () => {
             .avatar-wrapper {
                 position: relative;
             }
+        }
+        :deep(.lang-select) {
+            margin-right: 10px;
         }
     }
 }

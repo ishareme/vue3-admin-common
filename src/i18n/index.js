@@ -1,25 +1,33 @@
 import { createI18n } from 'vue-i18n';
+import store from '@/store';
+
+import mZhLocale from './lang/zh';
+import mEnLocale from './lang/en';
 const messages = {
     en: {
         msg: {
-            test: 'hello world'
+            ...mEnLocale
         }
     },
     zh: {
         msg: {
-            test: '你好世界'
+            ...mZhLocale
         }
     }
 };
 
-const locale = 'zh';
+const getLanguage = () => {
+    return store && store.getters && store.getters.language
+        ? store.getters.language
+        : 'zh';
+};
 
 const i18n = createI18n({
     // 使用composition api
     legacy: false,
     // 全局使用t函数
     globalInjection: true,
-    locale,
+    locale: getLanguage(),
     messages
 });
 
