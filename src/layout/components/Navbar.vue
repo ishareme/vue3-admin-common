@@ -5,6 +5,7 @@
             <Breadcrumb></Breadcrumb>
         </div>
         <div class="right-menu">
+            <ThemePicker></ThemePicker>
             <LangSelect class="lang-select"></LangSelect>
             <!-- 头像 -->
             <el-dropdown class="avatar-container" trigger="click">
@@ -38,6 +39,7 @@ import { useStore } from 'vuex';
 import Hamburger from '@/components/Hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
 import LangSelect from '@/components/LangSelect';
+import ThemePicker from '@/components/ThemeSelect';
 
 const store = useStore();
 const handlerLogout = () => {
@@ -70,9 +72,9 @@ const handlerLogout = () => {
                 position: relative;
             }
         }
-        :deep(.lang-select) {
-            margin-right: 10px;
-        }
+    }
+    :deep(.lang-select) {
+        margin-right: 10px;
     }
 }
 </style>

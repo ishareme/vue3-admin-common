@@ -2,10 +2,10 @@
     <el-dropdown trigger="click" @command="handleSetLanguage">
         <el-tooltip
             class="international hover-effect"
-            content="国际化"
+            :content="$t('msg.navBar.lang')"
             :effect="effect"
         >
-            <svg-icon icon="language" className="languageIcon"></svg-icon>
+            <svg-icon icon="language"></svg-icon>
         </el-tooltip>
         <template #dropdown>
             <el-dropdown-menu>

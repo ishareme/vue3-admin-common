@@ -1,4 +1,5 @@
 import variables from '@/styles/variables.module.scss';
+import { generateColors } from '@/utils/theme';
 
 // 快捷访问
 const getters = {
@@ -14,10 +15,16 @@ const getters = {
     userInfo: (state) => state.user.userInfo,
 
     // cssVar
-    cssVar: (state) => variables,
+    cssVar: (state) => ({
+        ...variables,
+        ...generateColors(state.theme.mainColor)
+    }),
 
     // app
     sidebarOpened: (state) => state.app.sidebarOpened,
-    language: (state) => state.app.language
+    language: (state) => state.app.language,
+
+    // theme
+    mainColor: (state) => state.theme.mainColor
 };
 export default getters;
