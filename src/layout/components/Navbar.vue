@@ -5,6 +5,7 @@
             <Breadcrumb></Breadcrumb>
         </div>
         <div class="right-menu">
+            <Screenfull></Screenfull>
             <ThemePicker></ThemePicker>
             <LangSelect class="lang-select"></LangSelect>
             <!-- 头像 -->
@@ -40,6 +41,7 @@ import Hamburger from '@/components/Hamburger';
 import Breadcrumb from '@/components/Breadcrumb';
 import LangSelect from '@/components/LangSelect';
 import ThemePicker from '@/components/ThemeSelect';
+import Screenfull from '@/components/Screenfull';
 
 const store = useStore();
 const handlerLogout = () => {
@@ -74,7 +76,7 @@ const handlerLogout = () => {
         }
     }
     :deep(.lang-select) {
-        margin-right: 10px;
+        margin-right: 16px;
     }
 }
 </style>

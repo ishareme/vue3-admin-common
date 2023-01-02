@@ -37,9 +37,9 @@ const handleSetTheme = (command) => {
 <style lang="scss" scoped>
 .theme {
     display: inline-block;
-    font-size: 20px;
+    font-size: 22px;
     vertical-align: text-bottom;
-    margin-right: 10px;
+    margin-right: 16px;
     &.hover-effect {
         cursor: pointer;
     }
