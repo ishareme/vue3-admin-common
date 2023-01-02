@@ -28,7 +28,8 @@ const i18n = createI18n({
     // 全局使用t函数
     globalInjection: true,
     locale: getLanguage(),
-    messages
+    messages,
+    warnHtmlMessage: false
 });
 
 export default i18n;

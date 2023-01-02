@@ -5,6 +5,7 @@
             <Breadcrumb></Breadcrumb>
         </div>
         <div class="right-menu">
+            <HeaderSearch></HeaderSearch>
             <Screenfull></Screenfull>
             <ThemePicker></ThemePicker>
             <LangSelect class="lang-select"></LangSelect>
@@ -42,6 +43,7 @@ import Breadcrumb from '@/components/Breadcrumb';
 import LangSelect from '@/components/LangSelect';
 import ThemePicker from '@/components/ThemeSelect';
 import Screenfull from '@/components/Screenfull';
+import HeaderSearch from '@/components/HeaderSearch';
 
 const store = useStore();
 const handlerLogout = () => {
