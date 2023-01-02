@@ -2,9 +2,10 @@
     <div class="navbar">
         <div class="left-menu">
             <Hamburger></Hamburger>
-            <Breadcrumb></Breadcrumb>
+            <Breadcrumb id="guide-breadcrumb"></Breadcrumb>
         </div>
         <div class="right-menu">
+            <Guide></Guide>
             <HeaderSearch></HeaderSearch>
             <Screenfull></Screenfull>
             <ThemePicker></ThemePicker>
@@ -44,6 +45,7 @@ import LangSelect from '@/components/LangSelect';
 import ThemePicker from '@/components/ThemeSelect';
 import Screenfull from '@/components/Screenfull';
 import HeaderSearch from '@/components/HeaderSearch';
+import Guide from '@/components/Guide';
 
 const store = useStore();
 const handlerLogout = () => {

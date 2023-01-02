@@ -1,6 +1,10 @@
 <template>
     <div class="hamburger-container" @click="toggleClick">
-        <svg-icon className="hamburger" :icon="icon"></svg-icon>
+        <svg-icon
+            id="guide-hamburger"
+            className="hamburger"
+            :icon="icon"
+        ></svg-icon>
     </div>
 </template>
 
