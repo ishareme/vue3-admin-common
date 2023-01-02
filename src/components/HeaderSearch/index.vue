@@ -41,7 +41,6 @@ let searchPool = computed(() => {
     const _filterRoutes = filterRoutes(router.getRoutes());
     return generateRoutes(_filterRoutes);
 });
-console.log('[ searchPool.value ]', searchPool.value);
 // 搜索库相关
 let fuse;
 const initFuse = (searchPool) => {
@@ -68,6 +67,8 @@ const initFuse = (searchPool) => {
 initFuse(searchPool.value);
 
 const isShow = ref(false);
+// search 相关
+const search = ref('');
 const searchOptions = ref([]);
 const onShowClick = () => {
     isShow.value = !isShow.value;

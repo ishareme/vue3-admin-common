@@ -13,3 +13,6 @@ export const LANG = 'LANGUAGE';
 export const MAIN_COLOR = 'MAIN_COLOR';
 // 默认主题色
 export const DEFAULT_COLOR = '#409eff';
+
+// tagsview
+export const TGAS_VIEW = 'TGAS_VIEW';

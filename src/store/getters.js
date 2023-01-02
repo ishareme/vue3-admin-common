@@ -23,6 +23,8 @@ const getters = {
     // app
     sidebarOpened: (state) => state.app.sidebarOpened,
     language: (state) => state.app.language,
+    // tagsview
+    tagsViewList: (state) => state.app.tagsViewList,
 
     // theme
     mainColor: (state) => state.theme.mainColor
