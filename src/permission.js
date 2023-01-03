@@ -27,7 +27,6 @@ router.beforeEach(async (to, from, next) => {
                         'permission/filterRoutes',
                         permission.menus
                     );
-                    console.log('[ filterRoutes ]', filterRoutes);
                     // 动态添加路由
                     filterRoutes.forEach((item) => {
                         router.addRoute(item);

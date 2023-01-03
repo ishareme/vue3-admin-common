@@ -35,7 +35,7 @@
                             {{ detailData.province }}
                         </el-descriptions-item>
                         <el-descriptions-item :label="$t('msg.userInfo.date')">
-                            {{ $filter.dataFilter(detailData.openTime) }}
+                            {{ $filter.dateFilter(detailData.openTime) }}
                         </el-descriptions-item>
                         <el-descriptions-item
                             :label="$t('msg.userInfo.remark')"
@@ -77,14 +77,14 @@
                                 >
                                     <span>
                                         {{
-                                            $filter.dataFilter(
+                                            $filter.dateFilter(
                                                 item.startTime,
                                                 'YYYY/MM'
                                             )
                                         }}
                                         ----
                                         {{
-                                            $filter.dataFilter(
+                                            $filter.dateFilter(
                                                 item.endTime,
                                                 'YYYY/MM'
                                             )

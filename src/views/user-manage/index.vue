@@ -54,7 +54,7 @@
                 </el-table-column>
                 <el-table-column :label="$t('msg.excel.openTime')">
                     <template #default="{ row }">
-                        {{ $filter.dataFilter(row.openTime) }}
+                        {{ $filter.dateFilter(row.openTime) }}
                     </template>
                 </el-table-column>
                 <el-table-column

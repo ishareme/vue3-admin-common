@@ -31,7 +31,7 @@ import { ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { getUserManageAllList } from '@/api/userManger';
 import { USER_RELATIONS } from './Export2ExcelConstants';
-import { dataFilter } from '@/filter';
+import { dateFilter } from '@/filter';
 
 defineProps({
     modelValue: {
@@ -65,7 +65,7 @@ const formatJson = (headers, rows) => {
                 return JSON.stringify(roles.map((role) => role.title));
             }
             if (headerKey === 'openTime') {
-                return dataFilter(item[headerKey]);
+                return dateFilter(item[headerKey]);
             }
             return item[headerKey];
         });
