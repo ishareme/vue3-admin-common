@@ -66,7 +66,11 @@
                         >
                             {{ $t('msg.excel.show') }}
                         </el-button>
-                        <el-button type="info" size="mini">
+                        <el-button
+                            type="info"
+                            size="mini"
+                            @click="onShowRoleClick(row._id)"
+                        >
                             {{ $t('msg.excel.showRole') }}
                         </el-button>
                         <el-button
@@ -94,17 +98,24 @@
         </el-card>
 
         <Export2Excel v-model="exportToExcelVisible"></Export2Excel>
+
+        <RolesDialog
+            :user-id="selectUserId"
+            v-model="roleDialogVisible"
+            @updateRole="getListData"
+        ></RolesDialog>
     </div>
 </template>
 
 <script setup>
-import { ref, onActivated } from 'vue';
+import { ref, onActivated, watch } from 'vue';
 import { getUserManageList, deleteUser } from '@/api/userManger';
 import { watchSwitchLang } from '@/utils/i18n';
 import { useRouter } from 'vue-router';
 import { useI18n } from 'vue-i18n';
 import { ElMessage, ElMessageBox } from 'element-plus';
 import Export2Excel from './components/Export2Excel';
+import RolesDialog from './components/Roles.vue';
 
 // 数据相关
 const tableData = ref([]);
@@ -169,10 +180,6 @@ const handleCurrentChange = (currentPage) => {
     getListData();
 };
 
-getListData();
-watchSwitchLang(getListData);
-onActivated(getListData);
-
 // excel
 const router = useRouter();
 const onImportExcelClick = () => {
@@ -184,10 +191,21 @@ const onToExcelClick = () => {
     exportToExcelVisible.value = true;
 };
 
+// 查看用户详情
 const i18n = useI18n();
 const onShowClick = (id) => {
     router.push(`/user/info/${id}`);
 };
+// 查看用户角色
+const roleDialogVisible = ref(false);
+const selectUserId = ref('');
+const onShowRoleClick = (id) => {
+    roleDialogVisible.value = true;
+    selectUserId.value = id;
+};
+watch(roleDialogVisible, (value) => {
+    if (!value) selectUserId.value = '';
+});
 const onRemoveClick = async (row) => {
     try {
         await ElMessageBox.confirm(
@@ -206,6 +224,10 @@ const onRemoveClick = async (row) => {
         getListData();
     }
 };
+
+getListData();
+watchSwitchLang(getListData);
+onActivated(getListData);
 </script>
 
 <style lang="scss" scoped>
