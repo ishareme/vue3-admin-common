@@ -27,6 +27,7 @@ const routes = computed(() => {
     const _filterRoutes = filterRoutes(router.getRoutes());
     return generateMenus(_filterRoutes);
 });
+console.log('[ routes ]', routes.value);
 
 // 默认激活项
 const route = useRoute();

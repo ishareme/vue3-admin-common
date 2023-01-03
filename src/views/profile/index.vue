@@ -170,7 +170,6 @@ const getFeatureData = async () => {
                     '除了以上功能之外，我们还实现了很多其他的功能，比如：CDN、动态的环境变量配置、懒加载、跨域等等'
             }
         ];
-        console.log('[ getFeatureData ]', error);
     }
 };
 getFeatureData();

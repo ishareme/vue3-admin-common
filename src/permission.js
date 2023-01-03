@@ -18,7 +18,23 @@ router.beforeEach(async (to, from, next) => {
         } else {
             // 判断用户资料是否纯在，不存在，则获取用户信息
             if (!store.getters.hasUserInfo) {
-                await store.dispatch('user/getUserInfo');
+                try {
+                    const { permission } = await store.dispatch(
+                        'user/getUserInfo'
+                    );
+                    // 处理用户权限  筛选出需要添加的路由
+                    const filterRoutes = await store.dispatch(
+                        'permission/filterRoutes',
+                        permission.menus
+                    );
+                    console.log('[ filterRoutes ]', filterRoutes);
+                    // 动态添加路由
+                    filterRoutes.forEach((item) => {
+                        router.addRoute(item);
+                    });
+                    // 添加路由之后进行 一次自动跳转 动态路由才能生效
+                    return next(to.path);
+                } catch (error) {}
             }
             next();
         }
