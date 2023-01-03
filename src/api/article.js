@@ -16,3 +16,17 @@ export const articleSort = (data) => {
         method: 'POST'
     });
 };
+
+// 删除文章
+export const deleteArticle = (articleId) => {
+    return request({
+        url: `/article/delete/${articleId}`
+    });
+};
+
+// 获取文章详情
+export const articleDetail = (articleId) => {
+    return request({
+        url: `/article/${articleId}`
+    });
+};
