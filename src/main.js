@@ -14,10 +14,13 @@ import installIcons from '@/icons';
 import './permission';
 // 全局属性
 import installFilter from '@/filter';
+// 自定义指令
+import installDirective from '@/directive';
 
 const app = createApp(App);
 installIcons(app);
 installFilter(app);
+installDirective(app);
 app.use(ElementPlus, {
     locale: store.getters.language === 'en' ? en : zhCn
 })
