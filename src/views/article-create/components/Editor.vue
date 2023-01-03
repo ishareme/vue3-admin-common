@@ -11,7 +11,7 @@
 
 <script setup>
 import E from 'wangeditor';
-import { onMounted, defineProps, defineEmits, watch } from 'vue';
+import { onMounted, watch } from 'vue';
 import i18next from 'i18next';
 import { useStore } from 'vuex';
 import { commitArticle, editArticle } from './commit';

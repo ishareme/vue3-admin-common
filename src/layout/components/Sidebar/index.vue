@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="logo-container">
+        <div class="logo-container" @click="onLogoClick">
             <el-avatar
                 :size="logoHeight"
                 shape="square"
@@ -17,8 +17,14 @@
 </template>
 
 <script setup>
+import { useRouter } from 'vue-router';
 import SiderbarMenu from './SiderbarMenu.vue';
 const logoHeight = 44;
+
+const router = useRouter();
+const onLogoClick = () => {
+    router.push('/');
+};
 </script>
 
 <style lang="scss" scoped>
@@ -28,6 +34,7 @@ const logoHeight = 44;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
     :deep(.el-avatar) {
         --el-avatar-background-color: none;
     }
