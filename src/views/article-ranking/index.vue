@@ -64,8 +64,9 @@
 <script setup>
 import { getArticleList } from '@/api/article';
 import { watchSwitchLang } from '@/utils/i18n';
-import { ref, onActivated } from 'vue';
+import { ref, onActivated, onMounted } from 'vue';
 import { dynamicData, selectDynamicLable, tableColumns } from './dynamic';
+import { tableRef, initSortable } from './sortable';
 
 // 数据相关
 const tableData = ref([]);
@@ -175,6 +176,9 @@ const getListData = async () => {
 getListData();
 watchSwitchLang(getListData);
 onActivated(getListData);
+onMounted(() => {
+    initSortable(tableData, getListData);
+});
 
 // 点击查看
 const onShowClick = () => {};
@@ -215,5 +219,11 @@ const handleCurrentChange = (currentPage) => {
         margin-top: 20px;
         text-align: center;
     }
+}
+
+:deep(.sortable-ghost) {
+    opacity: 0.6;
+    color: #fff;
+    background: #304156;
 }
 </style>

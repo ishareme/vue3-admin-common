@@ -82,5 +82,8 @@ const handlerLogout = () => {
     :deep(.lang-select) {
         margin-right: 16px;
     }
+    :deep(.el-avatar) {
+        --el-avatar-background-color: none;
+    }
 }
 </style>

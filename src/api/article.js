@@ -7,3 +7,12 @@ export const getArticleList = (data) => {
         params: data
     });
 };
+
+// 修改文章排序
+export const articleSort = (data) => {
+    return request({
+        url: '/article/sort',
+        data,
+        method: 'POST'
+    });
+};
