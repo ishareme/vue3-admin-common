@@ -12,9 +12,12 @@ import './styles/index.scss';
 import installIcons from '@/icons';
 // 导入路由守卫鉴权
 import './permission';
+// 全局属性
+import installFilter from '@/filter';
 
 const app = createApp(App);
 installIcons(app);
+installFilter(app);
 app.use(ElementPlus, {
     locale: store.getters.language === 'en' ? en : zhCn
 })

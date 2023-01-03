@@ -23,6 +23,7 @@ service.interceptors.request.use(
             // 如果token存在 注入token
             config.headers.Authorization = `Bearer ${store.getters.token}`;
         }
+        config.headers['Accept-Language'] = store.getters.language;
         return config;
     },
     (error) => {
