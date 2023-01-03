@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import { defineProps, defineEmits, ref, watch } from 'vue';
+import { defineProps, ref, watch } from 'vue';
 import { getPermissionList } from '@/api/permission';
 import { rolePermission, distributePermission } from '@/api/role';
 import { watchSwitchLang } from '@/utils/i18n';
