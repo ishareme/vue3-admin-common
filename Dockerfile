@@ -12,4 +12,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && echo 'Asia/Shanghai' >/etc/timezone
 
 # 创建 /admin-fe-access.log ，对应到 nginx.conf
-CMD touch /vue3-admin-common.log && nginx && tail /divify-fe-access.log -f
+CMD touch /vue3-admin-common.log && nginx && tail /vue3-admin-common.log -f
