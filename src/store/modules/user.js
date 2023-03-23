@@ -74,7 +74,7 @@ export default {
                     id: '0',
                     username: 'super-admin',
                     title: '超级管理员',
-                    avatar: 'https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png',
+                    avatar: 'http://div.junzher.net/img/logo.5446419a.png',
                     permission: {
                         menus: [
                             'userManage',

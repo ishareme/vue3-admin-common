@@ -93,7 +93,7 @@ const onConfirm = async () => {
                 openTime: '1433088000000',
                 username: 'super-admin',
                 mobile: '188xxxx0001',
-                avatar: 'https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png'
+                avatar: 'http://div.junzher.net/img/logo.5446419a.png'
             },
             {
                 role: [

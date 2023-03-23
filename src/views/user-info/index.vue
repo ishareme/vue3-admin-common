@@ -138,13 +138,13 @@ const getDetail = async () => {
                 {
                     startTime: '1538323200000',
                     endTime: '1551369600000',
-                    title: '慕课网',
+                    title: '快搭网',
                     desc: '混合开发京东商城'
                 },
                 {
                     startTime: '1614528000000',
                     endTime: '1625068800000',
-                    title: '慕课网',
+                    title: '快搭网',
                     desc: 'uni-app 开发企业级小程序'
                 }
             ],
@@ -154,12 +154,12 @@ const getDetail = async () => {
             username: 'super-admin',
             title: '超级管理员',
             mobile: '188xxxx0001',
-            avatar: 'https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png',
+            avatar: 'http://div.junzher.net/img/logo.5446419a.png',
             gender: '男',
             nationality: '汉',
             address: '北京市朝阳区xx大道 11xx0 号 3 层',
-            major: '在线职业教育平台',
-            glory: '国内领先的线上 IT 教育品牌'
+            major: '快速搭建无限可能',
+            glory: '海量模板一键部署'
         };
     }
 };

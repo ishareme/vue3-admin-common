@@ -7,7 +7,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "release": "standard-version && git push --follow-tags origin master",
+    "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
+    "release:major": "standard-version --release-as major && git push --follow-tags origin master"
   },
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.10",
@@ -53,6 +56,7 @@
     "node-polyfill-webpack-plugin": "^2.0.1",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.4",
+    "standard-version": "^9.5.0",
     "vue-cli-plugin-element-plus": "~0.0.13"
   },
   "config": {

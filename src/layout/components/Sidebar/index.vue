@@ -4,7 +4,7 @@
             <el-avatar
                 :size="logoHeight"
                 shape="square"
-                src="https://m.imooc.com/static/wap/static/common/img/logo-small@2x.png"
+                src="http://div.junzher.net/img/logo.5446419a.png"
             ></el-avatar>
             <p v-show="$store.getters.sidebarOpened" class="logo-title">
                 Admin
